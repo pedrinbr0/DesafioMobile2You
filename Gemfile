@@ -48,3 +48,5 @@ end
 gem 'csv'
 
 gem 'rubocop'
+
+gem 'activerecord-import', '~> 1.0'
