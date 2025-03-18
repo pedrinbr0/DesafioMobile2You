@@ -1,24 +1,41 @@
-# README
+# API de Filmes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Endpoints
 
-Things you may want to cover:
+### 1. Listar Filmes
 
-* Ruby version
+**GET** `/movies`
 
-* System dependencies
+- **Descrição**: Retorna todos os filmes ordenados por `release_year`.
+- **Parâmetros de Filtro**:
+  - `release_year`: Filtra por ano de lançamento.
+  - `genre`: Filtra por gênero.
+  - `country`: Filtra por país.
 
-* Configuration
+Exemplos:
 
-* Database creation
+GET http://localhost:3000/movies?release_year=2019
+GET http://localhost:3000/movies?genre=Thriller
+GET http://localhost:3000/movies?release_year=2019&genre=Thriller
 
-* Database initialization
 
-* How to run the test suite
+### 2. Importar Arquivo CSV
 
-* Services (job queues, cache servers, search engines, etc.)
+**POST** `/movies/import`
 
-* Deployment instructions
+- **Descrição**: Importa filmes a partir de um arquivo CSV.
+- **Parâmetro**:
+  - `file`: Arquivo CSV contendo os dados dos filmes (campo obrigatório).
 
-* ...
+Exemplo de requisição (Postman):
+
+- **Método**: POST
+- **URL**: `http://localhost:3000/movies/import`
+- **Body**: Form-data
+  - **Key**: `file` (tipo "File")
+  - **Valor**: Selecione o arquivo `netflix_titles.csv`
+
+## Como rodar o projeto:
+
+1. Clone este repositório.
+2. Instale as dependências:
