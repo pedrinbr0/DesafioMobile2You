@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    movies = Movie.order(:release_year)
+    movies = Movie.all.order(release_year: :asc)
 
     movies = movies.where(release_year: params[:release_year]) if params[:release_year].present?
     movies = movies.where(genre: params[:genre]) if params[:genre].present?
